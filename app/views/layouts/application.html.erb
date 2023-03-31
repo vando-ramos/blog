@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="bg-primary text-white text-center mb-4 p-4">
+      <%= link_to root_path, class: "text-white" do %>
+      <h1 class="display-4"> Blog </h1>
+      <% end %>
+      <p class='lead'>Hello, here you will find articles about programming, technology and career.</p>
+    </div>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="bg-primary text-white text-center mt-5 p-4">
+      Copyright © SomarDev <%= Date.current.year %>
+    </footer>
+
   </body>
 </html>
