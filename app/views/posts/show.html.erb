@@ -2,11 +2,11 @@
   <div class="text-center mb-5">
     <h1><%= @post.title %></h1>
 
-  <p class="text-muted">
-    <strong>By <%= @post.author %></strong><br>
-    <%= l @post.created_at, format: :long %>
-  </p>
-  </div>  
+    <p class="text-muted">
+      <strong>By <%= @post.author %></strong><br>
+      <%= l @post.created_at, format: :long %>
+    </p>
+  </div>
 
   <div class="px-5">
     <%= @post.body.gsub("\n", "<br>").html_safe %>
@@ -19,24 +19,6 @@
       <%= pluralize(@post.comments.count, 'comment') %>
       <span class="badge badge-success">Make a comment!</span>
     </h4>
-  </div>
-
-  <div class="shadow-sm m-3 p-3 bg-light rounded">
-    <%= form_with model: @comment, local: true do |form| %>
-      <%= form.hidden_field :post_id, value: @post.id %>
-      
-      <div class="form-group">
-        <%= form.label :author %>
-        <%= form.text_field :author, class: 'form-control', required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :body %>
-        <%= form.text_area :body, class: 'form-control', rows: 5, required: true %>
-      </div>
-    
-      <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Creating...'} %>
-    <% end %>
   </div>
 
   <% @comments.each do |comment| %>
@@ -55,7 +37,24 @@
 
       <hr>
       <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
-
     </div>
   <% end %>
+
+  <div class="shadow-sm m-3 p-3 bg-light rounded">
+    <%= form_with model: @comment, local: true do |form| %>
+      <%= form.hidden_field :post_id, value: @post.id %>
+      
+      <div class="form-group">
+        <%= form.label :author %>
+        <%= form.text_field :author, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :body %>
+        <%= form.text_area :body, class: 'form-control', rows: 5, required: true %>
+      </div>
+    
+      <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Creating...'} %>
+    <% end %>
+  </div>  
 </div>
