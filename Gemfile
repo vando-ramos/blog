@@ -12,6 +12,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
+gem "rails-i18n"
+gem "friendly_id"
+gem "pg_search"
+gem 'devise'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -33,7 +37,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "rails-i18n"
-gem "friendly_id"
-gem "pg_search"

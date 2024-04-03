@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
 
   def index
     @posts = Post.order(created_at: :desc)
