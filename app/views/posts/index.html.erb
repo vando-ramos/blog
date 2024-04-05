@@ -1,9 +1,13 @@
-<% @posts.each do |post| %>
-  <%= render post %>
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <%= render post %>  
+  <% end %>
+<% else %>
+  <p class="lead alert alert-info" role="alert">There aren't posts!</p>
 <% end %>
 
 <hr>
 
 <div class="text-right">
-  <%= link_to 'Create new post', new_post_path, class: 'btn btn-success' %>
+  <%= link_to 'New post', new_post_path, class: 'btn btn-success' %>
 </div>

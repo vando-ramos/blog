@@ -1,4 +1,4 @@
-<div class="shadow p-5 mb-5 bg-light rounded">
+<div class="shadow-lg p-5 mb-5 bg-light rounded">
   <div class="text-center mb-5">
     <h1><%= @post.title %></h1>
 
@@ -22,7 +22,7 @@
   </div>
 
   <% @comments.each do |comment| %>
-    <div class="shadow-sm m-3 p-3 bg-light rounded">
+    <div class="shadow-lg m-3 p-3 bg-light rounded">
       <div class="row">
         <div class="col">
           <strong><%= comment.author %></strong>
@@ -40,7 +40,7 @@
     </div>
   <% end %>
 
-  <div class="shadow-sm m-3 p-3 bg-light rounded">
+  <div class="shadow-lg m-3 p-3 bg-light rounded">
     <%= form_with model: @comment, local: true do |form| %>
       <%= form.hidden_field :post_id, value: @post.id %>
       
@@ -54,7 +54,7 @@
         <%= form.text_area :body, class: 'form-control', rows: 5, required: true %>
       </div>
     
-      <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Creating...'} %>
+      <%= form.submit 'Add a comment', class: 'btn btn-primary', data: {disable_with: 'Creating...'} %>
     <% end %>
   </div>  
 </div>
